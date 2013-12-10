@@ -3,8 +3,8 @@
 Plugin Name: WooCommerce Direct Variation Link 
 Plugin URI: http://www.wpbackoffice.com/plugins/woocommerce-direct-variation-link/
 Description: Link directly to a specific WooCommerce product variation using get variables (yoursite.com/your-single-product?size=small&color=blue).
-Version: 1.0.0
-Author: J. Tyler Wiest
+Version: 1.0.1
+Author: WP BackOffice
 Author URI: http://www.wpbackoffice.com
 */ 
 

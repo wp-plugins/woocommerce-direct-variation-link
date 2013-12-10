@@ -1,10 +1,10 @@
 === WooCommerce Direct Variation Link  ===
-Contributors: wpbackoffice, jtwiest
+Contributors: wpbackoffice
 Tags: woocommerce, product variations, direct link, products, variable products, 
 Donate Link: http://wpbackoffice.com/plugins/woocommerce-direct-variation-link/
 Requires at least: 2.3
 Tested up to: 3.71
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,9 @@ Manual Installation
 6. That's it, you should be able to use get variables with your variable products now
 
 == Changelog ==
+
+= 1.0.0 =
+* Contributor consolidation.
 
 = 1.0.0 =
 * Initial Commit
