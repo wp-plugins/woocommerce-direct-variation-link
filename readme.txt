@@ -3,8 +3,8 @@ Contributors: wpbackoffice
 Tags: woocommerce, product variations, direct link, products, variable products, 
 Donate Link: http://wpbackoffice.com/plugins/woocommerce-direct-variation-link/
 Requires at least: 2.3
-Tested up to: 3.71
-Stable tag: 1.0.1
+Tested up to: 3.81
+Stable tag: 1.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,7 +53,10 @@ Manual Installation
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.2 =
+* Removed the need to put 'pa_' infront variables.
+
+= 1.0.1 =
 * Contributor consolidation.
 
 = 1.0.0 =

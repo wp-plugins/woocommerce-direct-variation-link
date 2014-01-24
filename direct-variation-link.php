@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Direct Variation Link 
 Plugin URI: http://www.wpbackoffice.com/plugins/woocommerce-direct-variation-link/
 Description: Link directly to a specific WooCommerce product variation using get variables (yoursite.com/your-single-product?size=small&color=blue).
-Version: 1.0.1
+Version: 1.0.2
 Author: WP BackOffice
 Author URI: http://www.wpbackoffice.com
 */ 
@@ -84,10 +84,13 @@ function wpbo_get_variation_start_values( $varation_names ) {
 	$start_vals = array();
 
 	foreach ( $varation_names as $name ) {
-		
+	
+		// Get the lower case name and remove the pa_ if they have it
 		$lower_name = strtolower( $name );
+		$clean_name = str_replace( 'pa_', '', $lower_name );
 		$flag = false;
 		
+		// Grab the right variation based on the full name
 		if ( isset( $_GET_lower[ $lower_name ] ) ) {
 		
 			foreach( $all_variations[ $name ] as $val ) {		
@@ -99,7 +102,20 @@ function wpbo_get_variation_start_values( $varation_names ) {
 			if ( $flag == true ) {
 				$start_vals[ $lower_name ] = $_GET_lower[ $lower_name ];
 			}
-		} 
+		
+		// Grab the right variation if they attribute has a pa_ infronnt of it
+		} elseif ( isset( $_GET_lower[ $clean_name ] ) ) {
+		
+			foreach( $all_variations[ $name ] as $val ) {		
+				if ( strtolower( $val ) == strtolower( $_GET_lower[ $clean_name ] ) ) {
+					$flag = true;
+				}			
+			}
+
+			if ( $flag == true ) {
+				$start_vals[ $lower_name ] = $_GET_lower[ $clean_name ];
+			}
+		}
 	}
 	
 	return $start_vals;
