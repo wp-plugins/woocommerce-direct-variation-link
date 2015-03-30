@@ -2,9 +2,9 @@
 Contributors: wpbackoffice
 Tags: woocommerce, product variations, direct link, products, variable products, 
 Donate Link: http://wpbackoffice.com/plugins/woocommerce-direct-variation-link/
-Requires at least: 2.3
-Tested up to: 3.81
-Stable tag: 1.0.2
+Requires at least: 3.5
+Tested up to: 4.1.1
+Stable tag: 1.0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,9 @@ Manual Installation
 6. That's it, you should be able to use get variables with your variable products now
 
 == Changelog ==
+
+= 1.0.3 =
+* More compatible texhnique for selecting variations, compatible with variation swatches, and other plugins that provide a custom variable products view / functionality.
 
 = 1.0.2 =
 * Removed the need to put 'pa_' infront variables.

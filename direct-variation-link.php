@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Direct Variation Link 
 Plugin URI: http://www.wpbackoffice.com/plugins/woocommerce-direct-variation-link/
 Description: Link directly to a specific WooCommerce product variation using get variables (yoursite.com/your-single-product?size=small&color=blue).
-Version: 1.0.2
+Version: 1.0.3
 Author: WP BackOffice
 Author URI: http://www.wpbackoffice.com
 */ 
@@ -15,31 +15,17 @@ Author URI: http://www.wpbackoffice.com
 * 	@subpackage  Product
 * 	@return void
 */
-if ( ! function_exists( 'woocommerce_variable_add_to_cart' ) ) {
 
-	function woocommerce_variable_add_to_cart() {
-		global $product; 
-		
-		// Enqueue variation scripts
-		wp_enqueue_script( 'wc-add-to-cart-variation' );
-		
-		$varation_names = wpbo_get_variation_values();
-		$start_vals = wpbo_get_variation_start_values( $varation_names );
-				
-		// If there are start values use them, otherwise use the default attribute function
-		if ( $start_vals != null ) {
-			woocommerce_get_template( 'single-product/add-to-cart/variable.php', array(
-				'available_variations'  => $product->get_available_variations(),
-				'attributes'            => $product->get_variation_attributes(),
-				'selected_attributes'   => $start_vals
-			) );
-		} else {
-			woocommerce_get_template( 'single-product/add-to-cart/variable.php', array(
-				'available_variations'  => $product->get_available_variations(),
-				'attributes'            => $product->get_variation_attributes(),
-				'selected_attributes'   => $product->get_variation_default_attributes()
-			) );
-		}
+add_filter('woocommerce_product_default_attributes', 'setup_swatches', 10, 1);
+
+function setup_swatches($selected_attributes) {
+	$varation_names = wpbo_get_variation_values();
+	$start_vals = wpbo_get_variation_start_values( $varation_names );
+	
+	if(!empty($start_vals)) {
+		return $start_vals;
+	} else {
+		return $selected_attributes;
 	}
 }
 
