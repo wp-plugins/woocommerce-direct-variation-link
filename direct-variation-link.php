@@ -39,6 +39,9 @@ function setup_swatches($selected_attributes) {
 */		
 function wpbo_get_variation_values() {
 	global $product;
+	if( !$product->is_type( 'variable' ) ) {
+		return false;	
+	}
 	
 	// Create an array of possible variations
 	$available_variations = $product->get_variation_attributes();
@@ -62,6 +65,10 @@ function wpbo_get_variation_values() {
 */	
 function wpbo_get_variation_start_values( $varation_names ) {
 	global $product;
+
+	if( !$product->is_type( 'variable' ) ) {
+		return false;	
+	}
 
 	$all_variations = $product->get_variation_attributes();
 	$_GET_lower = array_change_key_case($_GET, CASE_LOWER);
